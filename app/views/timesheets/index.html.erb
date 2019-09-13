@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Timesheets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Overtime</th>
+      <th>Employee</th>
+      <th>Yearmonth</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timesheets.each do |timesheet| %>
+      <tr>
+        <td><%= timesheet.overtime %></td>
+        <td><%= timesheet.employee_id %></td>
+        <td><%= timesheet.yearmonth %></td>
+        <td><%= link_to 'Show', timesheet %></td>
+        <td><%= link_to 'Edit', edit_timesheet_path(timesheet) %></td>
+        <td><%= link_to 'Destroy', timesheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timesheet', new_timesheet_path %>
